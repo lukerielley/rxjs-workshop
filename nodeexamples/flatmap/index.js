@@ -22,15 +22,29 @@ function open(filename) {
 function createModel() {
     return loadAccount()
         .flatMap((accountNumber) => {
+
+            /*
+                This example simulates having to make an async call, and 
+                with it's result make subsequent async calls that require a
+                param from the initial call (In this case, the account number)
+            */
+
             if (accountNumber == 45) {
+
+                // Define our async calls into an array
                 let calls = [
                     open(`./${accountNumber}/a.json`),
                     open(`./${accountNumber}/b.json`),
                     open(`./${accountNumber}/c.json`)
                 ];
+
+                // Return the result of the forkJoin calls, but with a map 
                 return Rx.Observable
                     .forkJoin(calls)
                     .map((results) => {
+
+                        // Here we can create our data model
+
                         var model = {};
                         model['accountNumber'] = accountNumber;
                         model['customers'] = [];
@@ -38,6 +52,7 @@ function createModel() {
                             model.customers.push(result);
                         });
                         return model;
+
                     });
             } else {
                 return Rx.Observable.of(null);
