@@ -2,7 +2,10 @@
   "name": "nodeexamples",
   "version": "1.0.0",
   "description": "",
-  "dependencies": {},
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "rxjs": "^5.4.3"
+  },
   "devDependencies": {},
   "author": "Luke Rielley",
   "license": "ISC"
