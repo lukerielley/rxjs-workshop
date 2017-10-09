@@ -8,8 +8,8 @@ function open(filename) {
         if (!error && buffer) {
             try {
                 let model = JSON.parse(buffer);
-                if (model.name) {
-                    return model.name;
+                if (model.data) {
+                    return model.data;
                 }
             } catch (err) {
                 Rx.Observable.throw(err);
