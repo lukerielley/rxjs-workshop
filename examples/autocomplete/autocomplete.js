@@ -20,13 +20,27 @@
     // Get all distinct key up events from the input and only fire if long enough and distinct
     var keyup = Rx.Observable.fromEvent($input, 'keyup')
       .map(function (e) {
-        return e.target.value; // Project the text from the input
+        // Map allows us to take the inner observable and 'transform' it
+        // console.log(`Key pressed`, e);
+        return e.target.value;
       })
+      // .do((x) => {
+      //   console.log(`Key has changed: ${x}`);
+      // })
       .filter(function (text) {
-        return text.length > 2; // Only if the text is longer than 2 characters
+        // Filter using the predicate (text length must be greater than 2)
+        return text.length > 2;
       })
-      .debounce(750 /* Pause for 750ms */ )
-      .distinctUntilChanged(); // Only if the value has changed
+      // .do((x) => {
+      //   console.log(`Has text longer than 2 '${x}'`);
+      // })
+      // Debounce for 750 milliseconds
+      .debounce(750)
+      // .do(() => {
+      //   console.log(`Time is up :)`);
+      // })
+      // Only if the value has changed
+      .distinctUntilChanged();
 
     var searcher = keyup.flatMapLatest(searchWikipedia);
 
