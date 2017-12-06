@@ -15,9 +15,6 @@ var pairObservable = Rx.Observable.from(
 );
 
 pairObservable
-    .filter((x) => {
-        return x > 7; 
-    })
     .map((item) => {
         return item * 10;
     })
