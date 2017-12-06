@@ -23,6 +23,8 @@ function createModel() {
     return loadAccount()
         .flatMap((accountNumber) => {
 
+            console.log(`Account number is ${accountNumber}`);
+
             /*
                 This example simulates having to make an async call, and 
                 with it's result make subsequent async calls that require a
@@ -62,6 +64,7 @@ function createModel() {
 
 function loadAccount() {
     return open('account.json')
+            .delay(1000)
             .map((data) => {
                 return data
             });

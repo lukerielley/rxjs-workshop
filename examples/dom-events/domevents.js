@@ -1,12 +1,12 @@
 (function (global, $, Rx) {
 
     function main() {
-        var clickMeButton = $('#btn-demo');
         var results = $('#results');
-        var btnObservable = Rx.Observable.fromEvent(clickMeButton, 'click')
+
+        var btnObservable = Rx.Observable.fromEvent($('#btn-demo'), 'click')
+
         btnObservable.subscribe(() => {
-            results
-            .append (`<li>Clicked!</li>`);
+            results.append (`<li>Clicked!</li>`);
         })
     }
 
