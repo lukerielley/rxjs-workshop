@@ -12,8 +12,9 @@
 
         Rx.Observable.fromEvent(clickToOpenArea, 'click').subscribe((x) => {
             if (!isOpen) {
-                openDropDownList();
+                
                 floater.show();
+                openDropDownList();
             } else {
                 floater.hide();
             }
@@ -33,6 +34,8 @@
         });
         clicksElsewhereSubscription = clicksElsewhere.subscribe((x) => {
             console.log(`Clicked somewhere other than the floater`);
+            var floater = $("#floater");
+            floater.hide();
         });
     }
 

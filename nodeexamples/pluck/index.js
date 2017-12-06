@@ -22,18 +22,13 @@ var myFirstObservable = Rx.Observable.from(
             "address": {}
         },
         {
-            "account": "456",
-            "address": {
-                "street": "Flinders",
-                "suburb": "Melbourne"
-            }
+            "account": "456"
         }
     ]
 );
 
 console.log(`Outputting a list of the suburbs of our customers`);
 myFirstObservable
-    // Pluck works like a .map, and allows us to specify the path of an object that we wish to get
     .pluck('address', 'suburb')
     .subscribe(
         (result) => {

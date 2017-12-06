@@ -14,8 +14,7 @@ var myFirstObservable = Rx.Observable.create((observer) => {
     });
 
 // Subscribe like normal, but let's store our subscription inside a variable
-var myFirstSubscription = myFirstObservable
-    .subscribe(
+var myFirstSubscription = myFirstObservable.subscribe(
         (result) => {
             console.log(`Output: ${result}`);
         }
@@ -28,8 +27,10 @@ myFirstSubscription.add(() => {
 
 // After 1500 milliseconds, let's unsubscribe
 setTimeout(() => {
-    // Checked that we haven't already closed out subscription
+
+    // Check that we haven't already closed out subscription
     if (!myFirstSubscription.closed) {
         myFirstSubscription.unsubscribe();
     }
+
 }, 1500);

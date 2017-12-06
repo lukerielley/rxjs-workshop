@@ -20,12 +20,13 @@ console.log(`distinct():`);
 pairObservable
     .distinct()
     .subscribe((result) => {
-        console.log(`result: ${result}`);
+        console.log(result);
     });
 
+console.log('');
 console.log(`distinctUntilChanged():`);
 pairObservable
     .distinctUntilChanged()
     .subscribe((result) => {
-        console.log(`result: ${result}`);
+        console.log(result);
     });
