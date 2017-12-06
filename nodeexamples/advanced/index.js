@@ -31,6 +31,9 @@ var mySecondObservable = Rx.Observable.create((observer) => {
 var outputCount = 0;
 
 mySecondObservable
+    .finally(() => {
+        console.log(`ALL DONE!!! Let's wind things up ;-)`);
+    })
     .do((item) => {
         console.log(`This .do is BEFORE the map function, so it gets the item as it was emitted by the inner observable`);
         console.log(`.do BEFORE: ${item}`);
