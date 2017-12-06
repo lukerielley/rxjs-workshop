@@ -2,17 +2,7 @@ const Rx = require('rxjs/Rx');
 
 var pairObservable = Rx.Observable.from(
     [
-        'L',
-        'U',
-        'K',
-        'E',
-        'R',
-        'I',
-        'E',
-        'L',
-        'L',
-        'E',
-        'Y'
+        'L','U','K','E','R','I','E','L','L','E','Y'
     ]
 );
 
